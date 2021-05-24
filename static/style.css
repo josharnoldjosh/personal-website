@@ -1,0 +1,86 @@
+html, body {
+    background-color: black;
+    background-image: linear-gradient(to right, black, #0A1C3F);
+    font-family: 'Avenir Next' !important;     
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-size: 1.2em;
+    }
+
+    model-viewer {     
+        background-color: transparent;
+        --poster-color: transparent;
+        width: 100vw;
+        height: 40vh;    
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    body {
+        font-size: 1.5em;
+    }
+
+    model-viewer {     
+        background-color: transparent;
+        --poster-color: transparent;
+        width: 100vw;
+        height: 60vh;    
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+
+    body {
+        font-size: 1.75em;
+    }
+
+    model-viewer {     
+        background-color: transparent;
+        --poster-color: transparent;
+        width: 30vw;
+        height: 90vh;    
+    }
+}
+
+.column {
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;    
+}
+
+.row {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-items: center;  
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;    
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 10;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+}
+
+.p-container {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}

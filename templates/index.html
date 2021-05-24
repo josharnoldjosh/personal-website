@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta name="viewport">
+    <title>Josh Arnold</title>    
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='fav_icon.png')}}">    
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">    
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>      
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>        
+</head>
+<body>
+    <div class="row">                
+
+        <div id="typewriter" style="color: #A4AFC2; width: 350px;"></div>        
+
+        <div class="column">    
+            <model-viewer  
+                id="model_viewer"        
+                src="{{url_for('static', filename='model.glb')}}"        
+                auto-rotate
+                camera-controls 
+                disable-zoom
+                interaction-prompt-threshold="999999999"
+            ></model-viewer>
+        </div>
+
+        <div class="p-container"></div>
+    </div>
+
+    <div class="icons">
+        <a target="_blank" href="https://www.linkedin.com/in/josharnoldjosh/"><img class="icon" src="{{url_for('static', filename='linkedin.png')}}"></a>
+        <a target="_blank" href="https://github.com/josharnoldjosh"><img class="icon" src="{{url_for('static', filename='github.png')}}"></a>
+        <a target="_blank" href="mailto:dev@josharnold.me"><img class="icon" src="{{url_for('static', filename='mail.png')}}"></a>
+    </div>
+</body>
+
+<script>    
+    const text = new Typewriter('#typewriter', {        
+        delay: 40
+    });
+    text
+    .pauseFor(4000)
+    .typeString("Hey,")
+    .pauseFor(300)
+    .typeString('<br/>')
+    .typeString("I'm Josh.")    
+    .pauseFor(1000)    
+    .typeString('<br/>')
+    .typeString('<br/>')
+    .typeString("I’m an <strong>iOS</strong> developer,")    
+    .pauseFor(400)       
+    .typeString('<br/>')
+    .typeString("Caffeinated Programmer,")
+    .pauseFor(400) 
+    .typeString('<br/>')
+    .typeString("Watermelon Enthusiast.")    
+    .pauseFor(2000)
+    .start();
+</script>
+</html>
