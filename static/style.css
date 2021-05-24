@@ -1,5 +1,5 @@
 html, body {
-    background-color: black;
+    background-color: #0A1C3F;
     background-image: linear-gradient(to right, black, #0A1C3F);
     font-family: 'Avenir Next' !important;     
 }
@@ -7,7 +7,7 @@ html, body {
 @media only screen and (max-width: 600px) {
 
     body {
-        font-size: 1.4em;
+        font-size: 1.5em;
     }
 
     model-viewer {     
@@ -18,9 +18,9 @@ html, body {
     }
 
     .icon {
-        width: 60px;
-        height: 60px;
-        padding: 30px;
+        width: 100px;
+        height: 100px;
+        padding: 40px;
     }
 }
 
@@ -38,9 +38,9 @@ html, body {
     }
 
     .icon {
-        width: 40px;
-        height: 40px;
-        padding: 20px;
+        width: 80px;
+        height: 80px;
+        padding: 30px;
     }
 }
 
