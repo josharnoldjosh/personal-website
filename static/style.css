@@ -26,34 +26,18 @@ html, body {
         height: 100px;
         padding: 40px;
     }
-
-    .can-hide {
-        visibility: visible;
-    }
 }
 
 /* Landscape phones and down */
-@media (min-width: 400px) and (max-width: 800px) {
-
-    body {
-        font-size: 3.0em;
-    }
-
-    model-viewer {     
-        background-color: transparent;
-        --poster-color: transparent;
-        width: 100vw;
-        height: 15vh;    
-    }
-
-    .icon {
-        width: 100px;
-        height: 100px;
-        padding: 40px;
-    }
-
+@media (max-height: 799px) {
     .can-hide {
         visibility: hidden;
+    }
+}
+
+@media (min-height: 800px) {
+    .can-hide {
+        visibility: visible;
     }
 }
 
@@ -77,10 +61,6 @@ html, body {
         height: 60px;
         padding: 30px;
     }
-
-    .can-hide {
-        visibility: visible;
-    }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -100,9 +80,6 @@ html, body {
         width: 25px;
         height: 25px;
         padding: 10px;
-    }
-    .can-hide {
-        visibility: visible;
     }
 }
 
