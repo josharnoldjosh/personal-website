@@ -39,12 +39,12 @@ html, body {
         background-color: transparent;
         --poster-color: transparent;
         width: 100vw;
-        height: 50vh;    
+        height: 45vh;    
     }
 
     .icon {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         padding: 30px;
     }
 }
