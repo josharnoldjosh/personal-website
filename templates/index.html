@@ -8,12 +8,12 @@
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>      
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>        
 </head>
-<body>
-    <div class="row">                
+<body class="no-scroll">
+    <div class="row no-scroll">                
 
-        <div id="typewriter" style="color: #A4AFC2; width: 350px;"></div>        
+        <div id="typewriter" style="color: #A4AFC2; width: 350px; padding-top: 200px;"></div>        
 
-        <div class="column">    
+        <div class="column no-scroll">    
             <model-viewer  
                 loading="eager"
                 id="model_viewer"        
@@ -28,7 +28,7 @@
         <div class="p-container"></div>
     </div>
 
-    <div class="icons">
+    <div class="icons no-scroll">
         <a target="_blank" href="https://www.linkedin.com/in/josharnoldjosh/"><img class="icon" src="{{url_for('static', filename='linkedin.png')}}"></a>
         <a target="_blank" href="https://github.com/josharnoldjosh"><img class="icon" src="{{url_for('static', filename='github.png')}}"></a>
         <a target="_blank" href="mailto:dev@josharnold.me"><img class="icon" src="{{url_for('static', filename='mail.png')}}"></a>

@@ -1,7 +1,10 @@
 html, body {
     background-color: black;
     background-image: linear-gradient(to right, black, #0A1C3F);
-    font-family: 'Avenir Next' !important;    
+    font-family: 'Avenir Next' !important;        
+}
+
+.no-scroll {
     overflow: hidden;
 }
 
@@ -15,7 +18,7 @@ html, body {
         background-color: transparent;
         --poster-color: transparent;
         width: 100vw;
-        height: 40vh;    
+        height: 30vh;    
     }
 
     .icon {
@@ -28,14 +31,15 @@ html, body {
 @media only screen and (max-width: 1200px) {
 
     body {
-        font-size: 1.6em;
+        font-family: 'Avenir Next' !important; 
+        font-size: 2.0em;
     }
 
     model-viewer {     
         background-color: transparent;
         --poster-color: transparent;
         width: 100vw;
-        height: 60vh;    
+        height: 50vh;    
     }
 
     .icon {
