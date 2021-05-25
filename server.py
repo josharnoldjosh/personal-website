@@ -26,7 +26,7 @@ def set_temp(temp):
 
 @app.route('/get_temp')
 def get_temp():
-    return CURRENT_TEMP
+    return f"{CURRENT_TEMP}"
 
 
 if __name__ == '__main__':
