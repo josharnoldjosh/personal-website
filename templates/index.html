@@ -15,12 +15,13 @@
 
         <div class="column">    
             <model-viewer  
+                loading="eager"
                 id="model_viewer"        
                 src="{{url_for('static', filename='model.glb')}}"        
                 auto-rotate
                 camera-controls 
                 disable-zoom
-                interaction-prompt-threshold="999999999"
+                interaction-prompt-threshold="999999999"                
             ></model-viewer>
         </div>
 
@@ -35,11 +36,13 @@
 </body>
 
 <script>    
+    var model_viewer = document.getElementById("model_viewer");
+
     const text = new Typewriter('#typewriter', {        
         delay: 50
     });
     text
-    .pauseFor(3000)
+    .pauseFor(2000)
     .typeString("Hey,")
     .pauseFor(300)
     .typeString('<br/>')
@@ -56,5 +59,14 @@
     .typeString("Watermelon Enthusiast.")    
     .pauseFor(2000)
     .start();
+
+    // const interval = setInterval(function() {
+    //     console.log("Tick!");
+    //     console.log(model_viewer.getAttribute("loaded"));
+    //     if (model_viewer.getAttribute("loaded") == true) {            
+    //         model_viewer.style.visibility = "visible";
+    //         clearInterval(interval);
+    //     }  
+    // }, 2000);     
 </script>
 </html>

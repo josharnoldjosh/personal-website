@@ -1,7 +1,8 @@
 html, body {
     background-color: black;
     background-image: linear-gradient(to right, black, #0A1C3F);
-    font-family: 'Avenir Next' !important;     
+    font-family: 'Avenir Next' !important;    
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {
