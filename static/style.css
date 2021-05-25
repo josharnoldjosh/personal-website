@@ -11,7 +11,7 @@ html, body {
 @media only screen and (max-width: 600px) {
 
     body {
-        font-size: 2.0em;
+        font-size: 1.5em;
     }
 
     model-viewer {     
@@ -32,7 +32,7 @@ html, body {
 
     body {
         font-family: 'Avenir Next' !important; 
-        font-size: 2.0em;
+        font-size: 1.65em;
     }
 
     model-viewer {     
