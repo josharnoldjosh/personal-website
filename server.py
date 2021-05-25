@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 app = Flask(__name__)
@@ -17,16 +17,13 @@ global CURRENT_TEMP
 CURRENT_TEMP = -1
 
 
-@app.route('/set_temp/<temp>')
-def set_temp(temp):
+@app.route('/temp', methods=['GET', 'POST'])
+def temp():            
     global CURRENT_TEMP
-    CURRENT_TEMP = temp
-    return "Success!"
-
-
-@app.route('/get_temp')
-def get_temp():
-    return f"{CURRENT_TEMP}"
+    if request.method == 'GET':
+        return f"{CURRENT_TEMP}"
+    elif request.method == 'POST':
+        CURRENT_TEMP = request.form.get('temp', -1)    
 
 
 if __name__ == '__main__':
