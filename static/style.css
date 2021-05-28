@@ -29,13 +29,13 @@ html, body {
 }
 
 /* Landscape phones and down */
-@media (max-height: 799px) {
+@media (max-height: 600px) {
     .can-hide {
         visibility: hidden;
     }
 }
 
-@media (min-height: 800px) {
+@media (min-height: 601px) {
     .can-hide {
         visibility: visible;
     }
