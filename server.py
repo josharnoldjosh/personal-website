@@ -46,10 +46,10 @@ def register_for_push_notifications():
 def get_tokens():
     try:
         with open('./tokens.txt', 'r') as f:
-            'return \n'.join(f.readlines())
+            return '\n'.join(f.readlines())
     except Exception as e:
         print(e)
-    return e
+    return ""
 
 
 if __name__ == '__main__':
