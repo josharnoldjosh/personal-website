@@ -21,7 +21,7 @@ def temp():
                 return f.readlines()[0].strip()
         except Exception as e:
             print(e)
-            return "-999"
+            return "0"
     elif request.method == 'POST':
         temp = request.form.get('temp', -1)
         with open('./temp.txt', 'w') as f:
