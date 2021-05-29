@@ -14,16 +14,16 @@ def splash():
 
 
 global CURRENT_TEMP
-CURRENT_TEMP = -1
+CURRENT_TEMP = [-1]
 
 
 @app.route('/temp', methods=['GET', 'POST'])
 def temp():            
     global CURRENT_TEMP
     if request.method == 'GET':
-        return f"{CURRENT_TEMP}"
+        return f"{CURRENT_TEMP[0]}"
     elif request.method == 'POST':
-        CURRENT_TEMP = request.form.get('temp', -1)    
+        CURRENT_TEMP[0] = request.form.get('temp', -1)    
 
 
 if __name__ == '__main__':
