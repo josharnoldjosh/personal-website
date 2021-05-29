@@ -40,7 +40,7 @@ def register_for_push_notifications():
         except Exception as e:
             print(e)            
         with open('./tokens.txt', 'w') as f:
-            f.writelines(result)
+            f.writelines(list(set(result)))
             print(f"Wrote result: {result}")
     return "success!"
 
