@@ -16,8 +16,12 @@ def splash():
 @app.route('/temp', methods=['GET', 'POST'])
 def temp():    
     if request.method == 'GET':
-        with open('./temp.txt', 'r') as f:
-            return f.readlines()[0].strip()
+        try:
+            with open('./temp.txt', 'r') as f:
+                return f.readlines()[0].strip()
+        except Exception as e:
+            print(e)
+            return -999
     elif request.method == 'POST':
         temp = request.form.get('temp', -1)
         with open('./temp.txt', 'w') as f:
