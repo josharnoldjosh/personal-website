@@ -31,15 +31,18 @@ def temp():
 @app.route('/registerpush', methods=['POST'])
 def register_for_push_notifications():
     token = request.form.get('token', '')
+    print("Token is:", token)
     if token:
         result = [token]
         try:
             with open('./tokens.txt', 'r') as f:
-                result += [i for i in f.readlines() if i.strip()]
+                result += f.readlines()            
         except Exception as e:
-            print(e)
+            print(e)            
         with open('./tokens.txt', 'w') as f:
             f.writelines(result)
+            print(f"Wrote result: {result}")
+    return "success!"
 
 
 @app.route('/tokens', methods=['GET'])
