@@ -10,18 +10,18 @@ def splash():
     return render_template('index.html')
 
 
-# ~~ EEC 172 - Final Project ~~
-
-
 @app.route('/temp', methods=['GET', 'POST'])
 def temp():    
+    """
+    EEC 172 Final Project.
+    """
     if request.method == 'GET':
         try:
             with open('./temp.txt', 'r') as f:
                 return f.readlines()[0].strip()
         except Exception as e:
             print(e)
-            return -999
+            return "-999"
     elif request.method == 'POST':
         temp = request.form.get('temp', -1)
         with open('./temp.txt', 'w') as f:
