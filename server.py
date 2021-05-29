@@ -13,17 +13,15 @@ def splash():
 # ~~ EEC 172 - Final Project ~~
 
 
-global CURRENT_TEMP
-CURRENT_TEMP = [-1]
-
-
 @app.route('/temp', methods=['GET', 'POST'])
-def temp():            
-    global CURRENT_TEMP
+def temp():    
     if request.method == 'GET':
-        return f"{CURRENT_TEMP[0]}"
+        with open('./temp.txt', 'r') as f:
+            return f.readlines()[0].strip()
     elif request.method == 'POST':
-        CURRENT_TEMP[0] = request.form.get('temp', -1)    
+        temp = request.form.get('temp', -1)
+        with open('./temp.txt', 'w') as f:
+            f.write(f"{temp}")            
 
 
 if __name__ == '__main__':
