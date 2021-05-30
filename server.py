@@ -80,6 +80,8 @@ def notify_all():
         client = APNsClient('./key.pem', use_sandbox=False, use_alternative_port=False)
         client.send_notification(token_hex, payload, topic)
 
+    return "success!"
+
 
 if __name__ == '__main__':
     app.run(port=os.getenv('PORT', 8000))
