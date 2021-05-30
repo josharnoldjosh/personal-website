@@ -5,7 +5,8 @@ from flask import Flask, render_template, request
 
 from eec_helper import (
     get_temp,
-    write_temp    
+    write_temp,
+    send_notifications    
 )
 
 
@@ -17,23 +18,21 @@ def splash():
     return render_template('index.html')
 
 
-# ~~~ EEC 172 ~~~
-
-
 @app.route('/temp', methods=['GET', 'POST'])
 def temp():    
+    """
+    Temporary for EEC 172.
+    """
     if request.method == 'GET':
         return get_temp()
     elif request.method == 'POST':
         temp = request.form.get('temp', -1)
+        if abs(float(temp) - float(get_temp())) > 5:
+            send_notifications(
+                title="EEC 172",
+                body=f"Your temperature has dropped to {temp}˚F"
+            )        
         write_temp(temp)
-
-
-@app.route('/notify', methods=['POST'])
-def notify_all():
-    temp = get_temp()
-    alert = f"Your home temperature has dropped to {temp}˚F"        
-    return "success!"
 
 
 if __name__ == '__main__':

@@ -1,4 +1,25 @@
+from pusher_push_notifications import PushNotifications
 
+
+def send_notifications(title, body):
+
+    beams_client = PushNotifications(
+        instance_id='d4e8064a-36fa-49f1-8449-1cd616819682',
+        secret_key='CC49486F73D82BCAC8CA8F5423253BD69B12B94DA5CB8A1F46DC252764A704D0',
+    )
+
+    response = beams_client.publish_to_interests(
+        interests=['hello'],
+        publish_body={
+            'apns': {'aps': {'alert': { 'title': title, 'body': body}}},
+            'fcm': {'notification': {'title': title, 'body': body}},
+            'web': {'notification': {'title': title, 'body': body}}
+        }
+    )
+
+    print(response['publishId'])
+    return
+    
 
 def get_temp():
     try:
