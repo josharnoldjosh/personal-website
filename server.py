@@ -62,12 +62,12 @@ def get_tokens():
 @app.route('/notify', methods=['POST'])
 def notify_all():
 
+    temp = "0"
     try:
         with open('./temp.txt', 'r') as f:
             temp = f.readlines()[0].strip()
     except Exception as e:
-        print(e)
-        temp = "0"
+        print(e)    
 
     delay = request.form.get('delay', 2)
     
