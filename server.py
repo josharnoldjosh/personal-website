@@ -1,5 +1,9 @@
 import os
+from time import sleep
+
 from flask import Flask, render_template, request
+from apns2.client import APNsClient
+from apns2.payload import Payload
 
 
 app = Flask(__name__)
@@ -36,7 +40,7 @@ def register_for_push_notifications():
         result = [token]
         try:
             with open('./tokens.txt', 'r') as f:
-                result += f.readlines()            
+                result += f.readlines()
         except Exception as e:
             print(e)            
         with open('./tokens.txt', 'w') as f:
@@ -53,6 +57,28 @@ def get_tokens():
     except Exception as e:
         print(e)
     return ""
+
+
+@app.route('/notify', methods=['POST'])
+def notify_all():
+
+    try:
+        with open('./temp.txt', 'r') as f:
+            temp = f.readlines()[0].strip()
+    except Exception as e:
+        print(e)
+        temp = "0"
+
+    delay = request.form.get('token', '')
+    
+    sleep(float(delay))
+
+    tokens = get_tokens().split('\n')
+    for token_hex in tokens:        
+        payload = Payload(alert=f"Your temperature has changed: {temp}˚F", sound="default", badge=0)
+        topic = 'com.dev.finalproject'
+        client = APNsClient('./key.pem', use_sandbox=False, use_alternative_port=False)
+        client.send_notification(token_hex, payload, topic)
 
 
 if __name__ == '__main__':
