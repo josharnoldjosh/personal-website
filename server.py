@@ -27,10 +27,11 @@ def temp():
         return get_temp()
     elif request.method == 'POST':
         temp = request.form.get('temp', -1)
-        if abs(float(temp) - float(get_temp())) > 5:
+        delta = float(temp) - float(get_temp()
+        if abs(delta) >= 5:
             send_notifications(
                 title="EEC 172",
-                body=f"Your temperature has dropped to {temp}˚F"
+                body=f"Your home temperature has {("dropped" if delta < 0 else "risen")} to {temp}˚F"
             )        
         write_temp(temp)
 
