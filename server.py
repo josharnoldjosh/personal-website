@@ -2,11 +2,17 @@ import os
 from time import sleep
 
 from flask import Flask, render_template, request
-from apns2.client import APNsClient
-from apns2.payload import Payload
+from pushjack import APNSClient
 
 
 app = Flask(__name__)
+
+
+client = APNSClient(certificate='./key.pem',
+                    default_error_timeout=10,
+                    default_expiration_offset=2592000,
+                    default_batch_size=100,
+                    default_retries=5)
 
 
 @app.route('/')
@@ -73,13 +79,14 @@ def notify_all():
     
     sleep(float(delay))
 
-    tokens = get_tokens().split('\n')
-    for token_hex in tokens:        
-        payload = Payload(alert=f"Your temperature has changed: {temp}˚F", sound="default", badge=0)
-        topic = 'com.dev.finalproject'
-        client = APNsClient('./key.pem', use_sandbox=False, use_alternative_port=False)
-        client.send_notification(token_hex, payload, topic)
+    alert=f"Your temperature has changed: {temp}˚F"
 
+    tokens = get_tokens().split('\n')
+    for token in tokens:        
+        print("Sending for", token)
+        res = client.send(token, alert)        
+        print(res.errors, res.tokens, res.token_errors)
+        
     return "success!"
 
 
