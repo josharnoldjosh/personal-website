@@ -22,6 +22,9 @@ def splash():
 def temp():    
     """
     Temporary for EEC 172.
+    Will send a push notification if the 
+    change in temperature is greater than
+    5 degrees.
     """
     if request.method == 'GET':
         return get_temp()
