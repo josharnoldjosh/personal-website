@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from eec_helper import (
     get_temp,
     write_temp,
-    send_notifications    
+    send_notifications
 )
 
 
