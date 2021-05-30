@@ -69,7 +69,7 @@ def notify_all():
         print(e)
         temp = "0"
 
-    delay = request.form.get('token', '')
+    delay = request.form.get('delay', 2)
     
     sleep(float(delay))
 
